@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="filename">./log/karatsuba.log</Property>
+        <Property name="filenamePattern">./log/karatsuba-%i.log</Property>
+        <Property name="pattern">%d{ISO8601} %-5p [%t]: %-36.36c{1} - %m %n
+        </Property>
+    </Properties>
+
+    <Appenders>
+        <!-- ======= -->
+        <!-- CONSOLE -->
+        <!-- ======= -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${pattern}"/>
+        </Console>
+        <!-- ========= -->
+        <!-- ROOT File -->
+        <!-- ========= -->
+        <RollingFile name="File" fileName="${filename}"
+                     filePattern="${filenamePattern}">
+            <PatternLayout pattern="${pattern}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+
+        <Logger name="model" level="INFO"/>
+        <Logger name="Main" level="INFO"/>
+        <Logger name="processors" level="INFO"/>
+
+        <!-- ROOT -->
+        <Root level="ERROR">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+        </Root>
+
+    </Loggers>
+</Configuration>

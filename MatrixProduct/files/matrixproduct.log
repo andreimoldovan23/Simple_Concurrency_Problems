@@ -1,0 +1,47 @@
+2021-11-09T11:55:57,699 TRACE [main]: PropertiesLoader                     - Matrix size - 4 
+2021-11-09T11:55:57,701 TRACE [main]: PropertiesLoader                     - Number tasks - 4 
+2021-11-09T11:55:57,701 TRACE [main]: PropertiesLoader                     - Min matrix value - 0 
+2021-11-09T11:55:57,702 TRACE [main]: PropertiesLoader                     - Max matrix value - 10 
+2021-11-09T11:55:57,702 TRACE [main]: PropertiesLoader                     - Approach - threads 
+2021-11-09T11:55:57,707 TRACE [main]: Main                                 - Using normal threads to compute sum 
+2021-11-09T11:55:57,709 TRACE [Thread-0]: Worker                               - Calculating element on row 0 column 0 in thread 0 
+2021-11-09T11:55:57,709 TRACE [Thread-1]: Worker                               - Calculating element on row 0 column 1 in thread 1 
+2021-11-09T11:55:57,709 TRACE [Thread-2]: Worker                               - Calculating element on row 0 column 2 in thread 2 
+2021-11-09T11:55:57,709 TRACE [Thread-0]: Worker                               - Calculating element on row 1 column 0 in thread 0 
+2021-11-09T11:55:57,709 TRACE [Thread-3]: Worker                               - Calculating element on row 0 column 3 in thread 3 
+2021-11-09T11:55:57,709 TRACE [Thread-1]: Worker                               - Calculating element on row 1 column 1 in thread 1 
+2021-11-09T11:55:57,709 TRACE [Thread-2]: Worker                               - Calculating element on row 1 column 2 in thread 2 
+2021-11-09T11:55:57,710 TRACE [Thread-0]: Worker                               - Calculating element on row 2 column 0 in thread 0 
+2021-11-09T11:55:57,710 TRACE [Thread-1]: Worker                               - Calculating element on row 2 column 1 in thread 1 
+2021-11-09T11:55:57,710 TRACE [Thread-3]: Worker                               - Calculating element on row 1 column 3 in thread 3 
+2021-11-09T11:55:57,710 TRACE [Thread-2]: Worker                               - Calculating element on row 2 column 2 in thread 2 
+2021-11-09T11:55:57,710 TRACE [Thread-1]: Worker                               - Calculating element on row 3 column 1 in thread 1 
+2021-11-09T11:55:57,710 TRACE [Thread-3]: Worker                               - Calculating element on row 2 column 3 in thread 3 
+2021-11-09T11:55:57,710 TRACE [Thread-2]: Worker                               - Calculating element on row 3 column 2 in thread 2 
+2021-11-09T11:55:57,710 TRACE [Thread-0]: Worker                               - Calculating element on row 3 column 0 in thread 0 
+2021-11-09T11:55:57,710 TRACE [Thread-3]: Worker                               - Calculating element on row 3 column 3 in thread 3 
+2021-11-09T11:55:57,712 TRACE [main]: Main                                 - Time taken in ms - 4 
+2021-11-09T11:57:02,202 TRACE [main]: PropertiesLoader                     - Matrix size - 4 
+2021-11-09T11:57:02,204 TRACE [main]: PropertiesLoader                     - Number tasks - 4 
+2021-11-09T11:57:02,204 TRACE [main]: PropertiesLoader                     - Min matrix value - 0 
+2021-11-09T11:57:02,205 TRACE [main]: PropertiesLoader                     - Max matrix value - 10 
+2021-11-09T11:57:02,205 TRACE [main]: PropertiesLoader                     - Approach - threadpool 
+2021-11-09T11:57:02,205 TRACE [main]: PropertiesLoader                     - Thread pool size - 4 
+2021-11-09T11:57:02,211 TRACE [main]: Main                                 - Using thread pool to compute sum 
+2021-11-09T11:57:02,215 TRACE [pool-2-thread-1]: Worker                               - Calculating element on row 0 column 0 in thread 0 
+2021-11-09T11:57:02,215 TRACE [pool-2-thread-2]: Worker                               - Calculating element on row 0 column 1 in thread 1 
+2021-11-09T11:57:02,215 TRACE [pool-2-thread-3]: Worker                               - Calculating element on row 0 column 2 in thread 2 
+2021-11-09T11:57:02,222 TRACE [pool-2-thread-1]: Worker                               - Calculating element on row 1 column 0 in thread 0 
+2021-11-09T11:57:02,222 TRACE [pool-2-thread-3]: Worker                               - Calculating element on row 1 column 2 in thread 2 
+2021-11-09T11:57:02,222 TRACE [pool-2-thread-1]: Worker                               - Calculating element on row 2 column 0 in thread 0 
+2021-11-09T11:57:02,221 TRACE [pool-2-thread-4]: Worker                               - Calculating element on row 0 column 3 in thread 3 
+2021-11-09T11:57:02,222 TRACE [pool-2-thread-3]: Worker                               - Calculating element on row 2 column 2 in thread 2 
+2021-11-09T11:57:02,222 TRACE [pool-2-thread-2]: Worker                               - Calculating element on row 1 column 1 in thread 1 
+2021-11-09T11:57:02,222 TRACE [pool-2-thread-1]: Worker                               - Calculating element on row 3 column 0 in thread 0 
+2021-11-09T11:57:02,222 TRACE [pool-2-thread-4]: Worker                               - Calculating element on row 1 column 3 in thread 3 
+2021-11-09T11:57:02,222 TRACE [pool-2-thread-3]: Worker                               - Calculating element on row 3 column 2 in thread 2 
+2021-11-09T11:57:02,222 TRACE [pool-2-thread-2]: Worker                               - Calculating element on row 2 column 1 in thread 1 
+2021-11-09T11:57:02,223 TRACE [pool-2-thread-2]: Worker                               - Calculating element on row 3 column 1 in thread 1 
+2021-11-09T11:57:02,223 TRACE [pool-2-thread-4]: Worker                               - Calculating element on row 2 column 3 in thread 3 
+2021-11-09T11:57:02,223 TRACE [pool-2-thread-4]: Worker                               - Calculating element on row 3 column 3 in thread 3 
+2021-11-09T11:57:02,226 TRACE [main]: Main                                 - Time taken in ms - 13 

@@ -1,0 +1,31 @@
+Polynom value of X: 2
+Polynom max coefficient: 50
+
+Classic iterative
+-number of terms: 262143
+-algorithm: classic multiplication of polynomials
+-duration: 846386ms ~ 14.11 minutes
+
+Classic multithreaded
+-number of terms: 262143
+-duration: 259020ms ~ 4.37 minutes
+-algorithm: split the work into 4 tasks; each one will multiply a half of the first polynomial with a half of the second polynomial
+-threadStrategy:
+	-4 tasks will be submitted as to a fixed size ThreadPool; program will wait for the futures to complete
+	
+Karatsuba iterative
+-number of terms: 262143
+-algorithm: recursive karatsuba
+-duration: 166322ms ~ 2.77 minutes
+
+Karatsuba multithreaded
+-number of terms: 262143
+-algorithm: recursive karatsuba, but the recursive calls for multiplication of the halves are actually async recursive tasks
+-duration: 60924ms ~ 1.01 minutes
+-threadStrategy:
+	-uses the common jvm ForkJoinPool and submits async recursive tasks;
+	these are a special kind of async tasks supported by this Pool, optimized for recursion;
+	when a task submits recursivey new tasks, it will become idle and its thread can use the work-stealing strategy to process other tasks;
+	for deep recursions, this approach leads to a core number of threads at around 12 and maybe some extra worker threads; 
+	minimizes context switching and processing time, because core threads are almost never idle;
+

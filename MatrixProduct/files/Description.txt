@@ -1,0 +1,19 @@
+Program properties are externalized.
+Based on these properties the program can either take a thread pool approach, or an approach using
+simple threads.
+
+In the case of thread pool one, tasks will be submitted to this thread pool, in the other one, a number
+of threads equal to the number of tasks will be created.
+
+Each of these tasks will calculate every k-th element in the resulting matrix, where k is equal to
+the number of tasks.
+
+Some observations regarding performance and configurations:
+
+1000x1000 matrix, 20 tasks, simple thread approach - time taken 15.33s
+1000x1000 matrix, 20 tasks, thread pool approach of size 4 - time taken 15s
+1000x1000 matrix, 20 tasks, thread pool approach of size 20 - time taken 15.32s
+
+Conclusions:
+-creating a lot of threads adds a bit of overhead, which is obviously higher than the one created
+by the idle tasks that are waiting for execution in the second approach
