@@ -1,0 +1,34 @@
+Task: find one Hamiltonian cycle in a directed graph, if it exists
+Input: in the files folder you can find an image of the graph and its adjacency matrix
+Graph: directed, 18 vertices, 30 edges, 10 hamiltonian cycles
+
+Approach: 
+	-build the graph from the adjacency matrix file
+	-for each vertex in the graph:
+		-launch an async task
+		-this will first check if we already found a path; if so, terminate the task
+		-then it will check if the path it currently has can be a hamiltonian cycle
+			(by checking if there is an edge from the last node to the initial one)
+		-if it is, convert it to a string, return it and mark the path as found
+			(this will let the other tasks now that they can terminate since a path has already been found)
+		-if not, for each vertex that has an edge going into it from the current one (last one in the path)
+			launch a new async task
+
+Multithreading:
+	-these tasks are all of the type RecursiveTask<T>
+	-this type is a built in type used for working with tasks in the jvm common ForkJoinPool
+	-this approach works well with multithreaded async algorithms because:
+		-this thread pool already exists; it is created by the jvm, therefore, no overhead with creating threads
+		-a core number of threads are always running; in my case, considering the hardware resources, probably around 12 or 15
+		-these threads are almost never idle because they implement the work stealing strategy
+			-so when a task blocks waiting for its forked children to finish, its thread can start processing another task;
+			-this approach speeds computation by a lot for recursive algorithms
+			
+Observations:
+	-initially, even though a path was found, all other tasks that were running would keep looking for paths until they finished;
+	thus the algorithm was basically finding every hamiltonian cycle, not just one
+	-average runtime: 30ms
+	
+	-improvement; added an atomic boolean variable in the graph class; this marks if the graph has a
+	hamiltonian cycle or not; each task checks this when starting and terminates immediately if there is already a path and sets it if it finds a path;
+	-average runtime: 10ms

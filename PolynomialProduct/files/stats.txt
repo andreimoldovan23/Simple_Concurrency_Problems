@@ -15,7 +15,14 @@ Classic multithreaded
 	
 Karatsuba iterative
 -number of terms: 262143
--algorithm: recursive karatsuba
+-algorithm: recursive karatsuba;
+	-each tasks takes in 2 polynomials;
+	-splits them in half, let's call them lowerHalf1, lowerHalf2, upperHalf1, upperHalf2;
+	-computes 
+		KA(lowerHalf1, lowerHalf2)=D0, 
+		KA(upperHalf1, upperHalf2)=D1, 
+		KA(lowerHalf1 + upperHalf1, lowerHalf2 + upperHalf2)=D01
+	-returns D1 * x^N + (D01 - D0 - D1) * x^(N/2) + D0
 -duration: 166322ms ~ 2.77 minutes
 
 Karatsuba multithreaded
