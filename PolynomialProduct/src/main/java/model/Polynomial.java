@@ -2,6 +2,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.stream.Collectors;
 
 import config.PropertiesLoader;
@@ -28,8 +29,9 @@ public class Polynomial {
     }
 
     public List<Long> getListOfTerms() {
+        AtomicReference<Integer> size = new AtomicReference<>(rank);
         return coefficients.stream()
-                .map(cof -> cof * Utils.pow(value, rank - coefficients.indexOf(cof)))
+                .map(cof -> cof * Utils.pow(value, size.getAndUpdate(x -> x - 1)))
                 .collect(Collectors.toList());
     }
 
