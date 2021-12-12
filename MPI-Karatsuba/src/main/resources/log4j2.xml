@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="pattern">%d{ISO8601} %-5p [%t]: %-36.36c{1} - %m %n</Property>
+    </Properties>
+
+    <Appenders>
+        <!-- ======= -->
+        <!-- CONSOLE -->
+        <!-- ======= -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${pattern}"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+
+        <Logger name="model" level="INFO"/>
+        <Logger name="processors" level="INFO"/>
+        <Logger name="Main" level="INFO"/>
+
+        <!-- ROOT -->
+        <Root level="ERROR">
+            <AppenderRef ref="Console"/>
+        </Root>
+
+    </Loggers>
+</Configuration>

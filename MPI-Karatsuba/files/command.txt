@@ -1,0 +1,1 @@
+mpjrun.bat -np 4 -jar target/KaratsubaMPI-1.0-SNAPSHOT-jar-with-dependencies.jar

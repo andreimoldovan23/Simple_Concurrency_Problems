@@ -7,7 +7,6 @@ import java.util.stream.IntStream;
 import model.Polynomial;
 
 public class Utils {
-
     private static Integer getRandomNumber(Integer min, Integer max) {
         return (int) ((Math.random() * (max - min)) + min);
     }
@@ -35,6 +34,18 @@ public class Utils {
 
     public static Integer getMaxDegree(Polynomial p1, Polynomial p2) {
         return Math.max(p1.getRank(), p2.getRank()) + 1;
+    }
+
+    public static List<Long> getSliceFrom(List<Long> array, Integer index) {
+        int start = array.size() / 2 * index;
+        int end = start + array.size() / 2;
+        return array.subList(start, end);
+    }
+
+    public static void validatePolynomials(Polynomial p1, Polynomial p2) {
+        if (!p1.getRank().equals(p2.getRank()) ||
+                !Utils.isPowerOf(p1.getRank() + 1, 2))
+            throw new RuntimeException("Invalid polynomials");
     }
 
 }

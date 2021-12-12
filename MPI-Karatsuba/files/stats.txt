@@ -1,0 +1,24 @@
+Classic multiplication:
+-algorithm:
+    -4 processes spawned
+    -the root process will split the terms of the polynomials in halves
+    -the root process will send to each worker process its corresponding halves
+    -each process will then calculate its own result, and these will be sent back to the root
+    -the root will sum these up and display the result
+-duration: 378984ms ~ 6.31 minutes
+-observations:
+    -slower than the multithreaded implementation, most likely because of the communication that is going back and forth
+    using MPI between processes
+    -suggestion for improvement: each process should calculate its result in a multithreaded way;
+    might not work though because that would generate a lot of context switching
+
+Karatsuba multiplication:
+-algorithm:
+    -initially the root process will send to the workers their corresponding polynomials, which were obtained after splitting the initial polynomials
+    -each process will calculate the result using karatsuba algo and then will send back to the root the result
+-observations:
+    -slower than the multithreaded implementation, most likely because of the communication that is going back and forth
+    using MPI between processes
+    -suggestion for improvement: each process should calculate its result in a multithreaded way;
+    might not work though because that would generate a lot of context switching
+-duration: 76794ms ~ 1.30 minutes
