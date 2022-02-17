@@ -31,6 +31,8 @@ public class Main {
     public static void main(String[] args) {
         Polynomial p1 = new Polynomial("P(X)", PropertiesLoader.getXValue());
         Polynomial p2 = new Polynomial("F(X)", PropertiesLoader.getXValue());
+        log.info("P1 {}", p1.toString());
+        log.info("P2 {}", p2.toString());
 
         try {
             JobProcessor jb = getProcessor(p1, p2);

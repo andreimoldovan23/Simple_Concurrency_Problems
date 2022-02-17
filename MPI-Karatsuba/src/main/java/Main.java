@@ -16,8 +16,8 @@ public class Main {
     private static void runRoot() {
         Polynomial p1 = new Polynomial("P0", PropertiesLoader.getValue());
         Polynomial p2 = new Polynomial("P0", PropertiesLoader.getValue());
-//        log.info("{}", p1.toString());
-//        log.info("{}", p2.toString());
+        log.info("{}", p1.toString());
+        log.info("{}", p2.toString());
 
         JobProcessor jb;
         String approach = PropertiesLoader.getApproach();
